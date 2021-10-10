@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 using namespace std;
-//线性表的链式存储又称为单链表,本部分所有代码都是带头结点的操作
+//线性表的链式存储又称为单链表
 typedef struct LNode {         //定义单链表结点类型
 	int data;            //数据域
 	struct LNode *next;       //指针域
@@ -47,8 +47,7 @@ LinkList CreatList2()
 	return L;
 }
 //3.插入结点操作
-//2个函数  一个是 找到第i个位置的函数，另一个是插入函数
-LinkList GetElem(LinkList L, int i)
+LinkList GetElem(LinkList L, int i)  //查找位置
 {
 	LNode *p = L;
 	while (i-- > 0 && p)
@@ -57,7 +56,7 @@ LinkList GetElem(LinkList L, int i)
 	}
 	return p;
 }
-bool Insert(LinkList L, int i, int x)
+bool Insert(LinkList L, int i, int x)  //插入
 {
 	//检查合法性
 	//{}
