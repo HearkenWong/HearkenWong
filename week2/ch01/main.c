@@ -10,8 +10,7 @@ typedef struct {    //顺序表结构体
 	int length;   //顺序表的长度
 } SqList;          //顺序表的类型
 
-//因为以下四个函数定义在main函数之后
-//所以需要申明这四个函数
+
 bool ListInsert(SqList &L, int i, int e);//插入一个元素到顺序表
 bool ListDelete(SqList &L, int i);//从顺序表删除一个元素
 int  LocateElem(SqList L, int e);//查找一个元素在顺序表第一次出现的位置
@@ -34,17 +33,17 @@ int main()
 	//输入完毕后打印L到屏幕
 	ListPrint(L);
 
-	//执行插入操作,下面可以自己修改,试试有什么不一样
+	//执行插入操作
 	printf("在第3个元素前面插入10\n");
 	if (ListInsert(L, 3, 10) == true)
 		ListPrint(L);
 
-	//执行删除操作,下面可以自己修改,试试有什么不一样
+	//执行删除操作
 	printf("删除第4个元素\n");
 	if (ListDelete(L, 4) == true)
 		ListPrint(L);
 
-	//执行查找操作,下面可以自己修改,试试有什么不一样
+	//执行查找操作
 	printf("查找值为1的元素在L中第一次出现的位置\n");
 	printf("值为1的元素在L中第一次出现的位置为%d\n", LocateElem(L, 1));
 
@@ -58,7 +57,7 @@ bool ListInsert(SqList &L, int i, int e)
 		return false;				  //插入失败,返回false
 	if (L.length > MaxSize)           //在判断顺序表是否已经满了
 		return false;                //插入失败,返回false
-	for (int j = L.length; j >= i; j--)    //把第i个之后的数据全部后移一位,可以理解为腾位置
+	for (int j = L.length; j >= i; j--)    //把第i个之后的数据全部后移一位
 	{
 		L.data[j] = L.data[j - 1];
 	}
@@ -102,6 +101,5 @@ void ListPrint(SqList L)
 	}
 	printf("整个线性表的长度为：");
 	printf("%d\n", L.length);             //输出线性表的长度
-	printf("------------------------------\n");
 }
 
