@@ -36,16 +36,16 @@ int main()
 	//输入完毕后打印L到屏幕
 	ListPrint(L);
 
-	//执行插入操作,下面可以自己修改,试试有什么不一样
+	//执行插入操作
 	printf("在第3个元素前面插入10\n");
 	if (ListInsert(L, 3, 10) == true)
 		ListPrint(L);
-	//执行删除操作,下面可以自己修改,试试有什么不一样
+	//执行删除操作
 	printf("删除第4个元素\n");
 	if (ListDelete(L, 4) == true)
 		ListPrint(L);
 
-	//执行查找操作,下面可以自己修改,试试有什么不一样
+	//执行查找操作
 	printf("查找值为1的元素在L中第一次出现的位置\n");
 	printf("值为1的元素在L中第一次出现的位置为%d\n", LocateElem(L, 1));
 
@@ -108,5 +108,4 @@ void ListPrint(SqList L)
 	}
 	printf("整个线性表的长度为：");
 	printf("%d\n", L.length);             //输出线性表的长度
-	printf("------------------------------\n");
 }
