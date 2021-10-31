@@ -32,7 +32,6 @@ void AdjustDown(MH* mh, int k){
 	}
 }
  
- 
 //初始化堆
 void initMaxHeap(MH* mh, int size){
 	mh->MaxSize = size;
