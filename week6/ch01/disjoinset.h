@@ -1,28 +1,23 @@
-#ifndef __DIS_JOIN_SET_H__
-#define __DIS_JOIN_SET_H__
+#ifndef DisjSet_DisjSet_h
+#define DisjSet_DisjSet_h
  
-#include <map>
-#include <vector>
+const int NumSets = 10;
  
-class disjoinset
-{
-public:
-	// 构造函数
-	explicit disjoinset(int n);
-	
-	// find操作
-	int find(int x) const;
-	
-	// union操作
-	void union_set(int r1, int r2);
-	
-	// 返回集合元素个数>=max_num_thresh 的集合元素，
-	std::vector< std::vector<int> > get_sets(size_t max_num_thresh = 1) const;
+/*
+ * Disjoint Set 不相交集 / 并查集
+ * 主要操作为：查找和合并
+ */
+typedef int DisjSet[NumSets + 1]; // 为了下标对齐，这里设定数组大小为NumSets + 1，第0个元素起占位作用
+typedef int SetType; // 父节点保存的元素的类型
+typedef int ElementType;
  
-	// 打印当前并查集信息，调试用
-	void print() const;
-private:
-	vector<int> s;
-};
+// 初始化
+void initialize(DisjSet set);
+ 
+// （按树的大小）合并两个不相交集，root1和root2分别表示两棵要合并的树的根
+void setUnion(DisjSet set, SetType root1, SetType root2);
+ 
+// 查找x属于set中的哪个不相交集
+SetType find(ElementType x, DisjSet set);
  
 #endif
